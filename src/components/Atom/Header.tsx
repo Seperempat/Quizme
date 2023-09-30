@@ -23,11 +23,11 @@ const Header = () => {
       }
     };
     window.addEventListener("scroll", handleScroll);
-
+    setIsOpen(false);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, []);
   return (
     <>
       <header
@@ -38,13 +38,13 @@ const Header = () => {
         }`}
       >
         <nav className="flex justify-between   px-4 w-full py-6 sm:mx-auto sm:max-w-screen-xl sm:py-6 sm:px-4">
-          <div className="flex items-center gap-3 sm:gap-6">
+          <div className="flex items-center gap-4 sm:gap-6">
             <button className={`sm:hidden`} onClick={OpenHandler}>
-              <div className={`${isOpen ? "block" : "hidden"}`}>
-                <IconHumberger />
-              </div>
               <div className={`${isOpen ? "hidden" : "block"}`}>
-                <IconClose />
+                <IconHumberger width="30px" />
+              </div>
+              <div className={`${isOpen ? "block" : "hidden"}`}>
+                <IconClose width="30px" />
               </div>
             </button>
             <h2 className="text-xl font-medium">QuizMe?</h2>
@@ -65,8 +65,8 @@ const Header = () => {
         <div
           className={`sm:hidden absolute z-100 top-[92px] left-0 w-full ${
             !isOpen
-              ? "h-auto bg-white py-3 ease-in-out overflow-hidden transition-all duration-300 shadow-sm"
-              : "hidden"
+              ? "hidden"
+              : "h-auto bg-white py-3 ease-in-out overflow-hidden transition-all duration-300 shadow-sm"
           } `}
         >
           <div>
