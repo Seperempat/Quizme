@@ -11,8 +11,8 @@ export default function Footer() {
 
           <div className="sm:flex ">
             {Datas.map((item, index) => (
-              <div>
-                <Link href={item.link} key={index}>
+              <div  key={index}>
+                <Link href={item.link}>
                   <p className="font-regular border-b-2 border-transparent hover:text-white hover:border-white p-2 hover:transition-all hover:duration-150 inline-block sm:mb-2">{item.title}</p>
                 </Link>
               </div>
